@@ -1,0 +1,15 @@
+# Method 1: Using built-in function
+hex_num = "1A3"
+decimal_num = int(hex_num, 16)
+print(decimal_num)  # Output: 419
+
+# Method 2: Manual conversion
+hex_num = "1A3"
+fact = 0
+for i, digit in enumerate(reversed(hex_num)):
+    if digit.isdigit():
+        value = int(digit)
+    else:
+        value = 10 + ord(digit.upper()) - ord('A')
+    fact += value * (16 ** i)
+print(fact)  # Output: 419
