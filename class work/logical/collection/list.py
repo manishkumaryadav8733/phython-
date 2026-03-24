@@ -7,7 +7,10 @@
 # pop()
 # remove()
 # reverse
-
-print(bin(456)[2:])
+# sort()            
+# list() 
+l  = [100,200,300,400,"abc",True,45.66]
+print(l)
+print(len(l))
 
     
