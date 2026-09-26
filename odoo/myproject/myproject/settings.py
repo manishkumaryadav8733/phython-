@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-zinchn)=6-)r+f_-d-1+t81!^@5cy2@!lo6$=**^!jzt&$t2ax'
+SECRET_KEY = 'django-insecure-zb5ybto5rp$qj@+pq=kkvvlq=9ff%xpux9fg$+n-ou)7_pme&j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+     # Third Party
+    "rest_framework",
+
+    # StockSense Apps
+    "accounts",
+    "products",
+    "warehouse",
+    "inventory",
+    "operations",
+    "dashboard",
 ]
 
 MIDDLEWARE = [
@@ -117,6 +127,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTH_USER_MODEL = "accounts.User"
+
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
@@ -125,3 +139,18 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+TEMPLATES[0]["DIRS"] = [
+    BASE_DIR / "templates",
+]
+
+STATIC_URL = "static/"
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
